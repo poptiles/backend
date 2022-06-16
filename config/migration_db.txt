@@ -1,0 +1,24 @@
+
+1. User Model: npx sequelize-cli model:generate --name Users --attributes user_id:integer,fullname:string,email:string,imageUrl:string,role:string --force
+2. Gift Model: npx sequelize-cli model:generate --name SendGift --attributes from_email:string,to_email:string,phone:string,price:float,tiles:integer,pid:string,date:date --force
+3. Order Model: npx sequelize-cli model:generate --name Order --attributes order_no:integer,order_date:date,dob:date,gender:string,email:string,name:string,phone:string,frames:integer,address:string,frame_type:string,order_status:string,shipping_date:date,shipping_company:string,tracking_id:integer,price:integer,user_id:string --force
+4. Order_Price Model: npx sequelize-cli model:generate --name Order_Price --attributes frame_3_5:integer,frame_6plus:integer --force
+5. photo Model: npx sequelize-cli model:generate --name Photos --attributes photo_name:text,order_no:integer --force
+6. coupon_code Model: npx sequelize-cli model:generate --name Coupon --attributes coupon_code:string,discount:float,type:string,status:string,usage:integer,used:integer,frames_valid:integer,expiry_date:date --force
+7. banner Model: npx sequelize-cli model:generate --name Banner --attributes text:string,images:string --force
+8. banner Transactions: npx sequelize-cli model:generate --name Transactions --attributes order_id:string,PID:string,email:string,amount:float,date:date  --force
+9. banner GiftPrice: npx sequelize-cli model:generate --name GiftPrices --attributes tile3:integer,tile6:integer,tile8:integer,tile12:integer,tile16:integer,tile20:integer  --force
+
+user_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false
+    },
+///////////////////////////////////////////////////////
+
+Migrate to db: npx sequelize db:migrate
